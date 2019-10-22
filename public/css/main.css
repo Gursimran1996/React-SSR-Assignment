@@ -1,0 +1,27 @@
+body {
+    margin: 0
+}
+button {
+    background: red;
+}.header {
+    height: 60px;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    box-shadow: 0px 2px grey;
+    padding: 15px;
+}
+
+.logo {
+    font-size: 35px;
+    font-weight: bold;
+    align-self: center;
+    justify-self: center;
+    color: gray;
+}
+
+.search {
+    grid-column: 4/5;
+    height: 50px;
+    align-self: center;
+    border: 1px solid lightgray;
+}
