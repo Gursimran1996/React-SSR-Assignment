@@ -1,7 +1,7 @@
 .header {
     height: 60px;
     display: grid;
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(7,1fr);
     box-shadow: 0px 2px grey;
     padding: 15px;
 }
@@ -15,8 +15,18 @@
 }
 
 .search {
-    grid-column: 4/5;
+    grid-column: 5/7;
     height: 50px;
     align-self: center;
     border: 1px solid lightgray;
+}
+
+.cart {
+    grid-column: 7/8;
+    align-self: center;
+    justify-self: center;
+}
+
+.cart > span {
+    font-size: 20px;
 }

@@ -1,10 +1,12 @@
 import React from 'react';
+import './card.css';
+// import StarRatings from 'react-star-ratings';
 
 const Card = (props) => {
     return (
         <div className="cardWrapper">
             <div>
-                <img src={props.cardData.thumbnail}/>
+                <img className="cardThumbnail" src={props.cardData.thumbnail} alt="image-thumbnail" />
             </div>
             <h3>
                 {props.cardData.productName}
@@ -15,10 +17,18 @@ const Card = (props) => {
                 </p>
             </div>
             <div>
-                {/* Product rating will come here */}
+                {/* <StarRatings
+                    rating={props.cardData.productRating}
+                    starRatedColor="#EAC117"
+                    numberOfStars={5}
+                    starDimension="18px"
+                    name='rating'
+                /> */}{
+                    `(${props.cardData.noOfRatings})`
+                }
             </div>
             <div>
-                {/* Product Price will Come here */}
+                {`$ ${props.cardData.productPrice}`}
             </div>
             <div className="cardFooter">
                 {/* Button to add/ remove from cart */}

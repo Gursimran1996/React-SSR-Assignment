@@ -2,6 +2,7 @@ import Hapi from '@hapi/hapi';
 import 'babel-polyfill';
 import Inert from 'inert';
 import renderer from './server/index';
+import createStore from './server/createStore';
 
 const initializeServer = async () => {
     
@@ -15,7 +16,8 @@ const initializeServer = async () => {
         method: 'GET',
         path: '/',
         handler: (request, h) => {
-            return renderer();
+            const store = createStore();
+            return renderer(request.url.path, store);
         }
     });
 
