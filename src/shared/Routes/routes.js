@@ -1,11 +1,11 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
 import App from '../components/app/App';
+import { loadData } from '../components/contentWrapper/ContentWrapper';
 
-export default () => {
-    return (
-        <React.Fragment>
-            <Route path="/" component={App} />
-        </React.Fragment>
-    )
-}
+export default [
+    {
+        loadData,
+        path: '/',
+        component: App,
+    }
+]

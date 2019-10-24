@@ -10,7 +10,6 @@ const App = () => {
         <div>
             <Header />
             <ContentWrapper />
-            Watch this Space for more!
         </div>
     );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import './card.css';
-// import StarRatings from 'react-star-ratings';
+import StarRatings from 'react-star-ratings';
 
 const Card = (props) => {
     return (
@@ -11,27 +11,30 @@ const Card = (props) => {
             <h3>
                 {props.cardData.productName}
             </h3>
-            <div>
-                <p>
+            <div className="description">
+                <div>
                     {props.cardData.productDesc}
-                </p>
+                </div>
             </div>
-            <div>
-                {/* <StarRatings
+            <div className="rating">
+                <StarRatings
                     rating={props.cardData.productRating}
                     starRatedColor="#EAC117"
                     numberOfStars={5}
-                    starDimension="18px"
+                    starDimension="22px"
+                    starSpacing="3px"
                     name='rating'
-                /> */}{
-                    `(${props.cardData.noOfRatings})`
+                />
+                {
+                    <div id="ratingCount">{`(${props.cardData.noOfRatings})`}</div>
                 }
             </div>
-            <div>
-                {`$ ${props.cardData.productPrice}`}
+            <div id="product__price">
+                {`$  ${props.cardData.productPrice}`}
             </div>
             <div className="cardFooter">
                 {/* Button to add/ remove from cart */}
+                <button className="cartBtn">Add to Cart</button>
             </div>
         </div>
     );

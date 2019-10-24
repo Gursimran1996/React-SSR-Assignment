@@ -1,8 +1,8 @@
-import { FETCH_DATA } from '../Actions/fetchData';
+import { FETCH__FILTERS_DATA } from '../Actions/fetchFiltersData';
 
 export default (state=[], action) => {
     switch(action.type) {
-        case FETCH_DATA: {
+        case FETCH__FILTERS_DATA: {
             return [ ...action.payload ];
         }
         default:

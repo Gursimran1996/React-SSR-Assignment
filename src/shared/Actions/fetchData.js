@@ -1,9 +1,8 @@
-import axios from 'axios';
+// import axios from 'axios';
 
 export const FETCH_DATA = 'FETCH_DATA';
 
 export const fetchData = () => dispatch => {
-    // const res = await axios.get('');
     const data = [
         {
             categoryId: 'categoryId-1',
@@ -11,8 +10,8 @@ export const fetchData = () => dispatch => {
             products: [
                 {
                     productName: 'Product 1',
-                    thumbnail: '',
-                    productDesc: 'Description for product 1',
+                    thumbnail: 'https://picsum.photos/325/195',
+                    productDesc: 'A product description is the marketing copy used to describe a product’s value proposition to potential customers. A compelling product description provides customers with details around features, problems it solves and other benefits to help generate a sale.',
                     productPrice: 2000,
                     productRating: 3,
                     productQuantity: 5,
@@ -20,8 +19,8 @@ export const fetchData = () => dispatch => {
                 },
                 {
                     productName: 'Product 2',
-                    thumbnail: '',
-                    productDesc: 'Description for product 2',
+                    thumbnail: 'https://picsum.photos/268/195',
+                    productDesc: 'A product description is the marketing copy used to describe a product’s value proposition to potential customers. A compelling product description provides customers with details around features, problems it solves and other benefits to help generate a sale.',
                     productPrice: 2000,
                     productRating: 3,
                     productQuantity: 5,
@@ -29,8 +28,8 @@ export const fetchData = () => dispatch => {
                 },
                 {
                     productName: 'Product 3',
-                    thumbnail: '',
-                    productDesc: 'Description for product 3',
+                    thumbnail: 'https://picsum.photos/297/195',
+                    productDesc: 'A product description is the marketing copy used to describe a product’s value proposition to potential customers. A compelling product description provides customers with details around features, problems it solves and other benefits to help generate a sale.',
                     productPrice: 2000,
                     productRating: 3,
                     productQuantity: 5,
@@ -38,8 +37,8 @@ export const fetchData = () => dispatch => {
                 },
                 {
                     productName: 'Product 4',
-                    thumbnail: '',
-                    productDesc: 'Description for product 4',
+                    thumbnail: 'https://picsum.photos/285/195',
+                    productDesc: 'A product description is the marketing copy used to describe a product’s value proposition to potential customers. A compelling product description provides customers with details around features, problems it solves and other benefits to help generate a sale.',
                     productPrice: 2000,
                     productRating: 3,
                     productQuantity: 5,
@@ -53,7 +52,7 @@ export const fetchData = () => dispatch => {
             products: [
                 {
                     productName: 'Product 1',
-                    thumbnail: '',
+                    thumbnail: 'https://picsum.photos/220/195',
                     productDesc: 'Description for product 1',
                     productPrice: 2000,
                     productRating: 3,
@@ -62,7 +61,7 @@ export const fetchData = () => dispatch => {
                 },
                 {
                     productName: 'Product 2',
-                    thumbnail: '',
+                    thumbnail: 'https://picsum.photos/320/195',
                     productDesc: 'Description for product 2',
                     productPrice: 2000,
                     productRating: 3,
@@ -71,7 +70,7 @@ export const fetchData = () => dispatch => {
                 },
                 {
                     productName: 'Product 3',
-                    thumbnail: '',
+                    thumbnail: 'https://picsum.photos/300/195',
                     productDesc: 'Description for product 3',
                     productPrice: 2000,
                     productRating: 3,
@@ -80,7 +79,7 @@ export const fetchData = () => dispatch => {
                 },
                 {
                     productName: 'Product 4',
-                    thumbnail: '',
+                    thumbnail: 'https://picsum.photos/290/195',
                     productDesc: 'Description for product 4',
                     productPrice: 2000,
                     productRating: 3,
@@ -95,7 +94,7 @@ export const fetchData = () => dispatch => {
             products: [
                 {
                     productName: 'Product 1',
-                    thumbnail: '',
+                    thumbnail: 'https://picsum.photos/270/195',
                     productDesc: 'Description for product 1',
                     productPrice: 2000,
                     productRating: 3,
@@ -104,7 +103,7 @@ export const fetchData = () => dispatch => {
                 },
                 {
                     productName: 'Product 2',
-                    thumbnail: '',
+                    thumbnail: 'https://picsum.photos/260/195',
                     productDesc: 'Description for product 2',
                     productPrice: 2000,
                     productRating: 3,
@@ -113,7 +112,7 @@ export const fetchData = () => dispatch => {
                 },
                 {
                     productName: 'Product 3',
-                    thumbnail: '',
+                    thumbnail: 'https://picsum.photos/300/195',
                     productDesc: 'Description for product 3',
                     productPrice: 2000,
                     productRating: 3,
@@ -122,7 +121,7 @@ export const fetchData = () => dispatch => {
                 },
                 {
                     productName: 'Product 4',
-                    thumbnail: '',
+                    thumbnail: 'https://picsum.photos/250/195',
                     productDesc: 'Description for product 4',
                     productPrice: 2000,
                     productRating: 3,
@@ -132,19 +131,23 @@ export const fetchData = () => dispatch => {
             ]
         }
     ];
-    let promise1 = new Promise((resolve, reject) => {
-        setTimeout(function () {
-            resolve(data);
-        }, 300);
-    });
+    // let promise1 = new Promise((resolve, reject) => {
+    //     setTimeout(function () {
+    //         resolve(data);
+    //     }, 300);
+    // });
 
-    let result;
-    promise1.then(data => {
-        result = data;
-        console.log(result);
-        dispatch({
-            type: FETCH_DATA,
-            payload: result
-        });
+    // let result;
+    dispatch({
+        type: FETCH_DATA,
+        payload: data
     });
+    // promise1.then(data => {
+    //     result = data;
+    //     console.log('Promise is dispatched', result);
+    //     dispatch({
+    //         type: FETCH_DATA,
+    //         payload: result
+    //     });
+    // });
 }

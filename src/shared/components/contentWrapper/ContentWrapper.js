@@ -1,34 +1,47 @@
 import React, { useState, useEffect } from 'react';
 import './ContentWrapper.css'
 import Card from '../card/card';
+import Accordion from '../accordion/accordion';
 
 import { connect } from 'react-redux';
 import { fetchData } from '../../Actions/fetchData';
+import { fetchFiltersData } from '../../Actions/fetchFiltersData';
 
 const ContentWrapper = (props) => {
-    const [categoryData, setCategoryData] = useState([]);
-    // const [count, setCount] = useState(0);
+    const [categoryData, setCategoryData] = useState(props.productData);
+    const [filtersData, setfiltersData] = useState(props.filtersData);
 
-    const fetchCategoryData = () => {
-
-        // setCategoryData(data);
+    const fetchInitialData = () => {
         props.fetchData();
+        props.fetchFiltersData();
     }
 
     useEffect(() => {
-        fetchCategoryData();
+        fetchInitialData();
     }, []);
+
+    useEffect(() => {
+        setCategoryData(props.productData);
+        setfiltersData(props.filtersData);
+    }, [props.productData, props.filtersData]);
 
     return (
         <div className="wrapper">
-            <div id="filters">
-                <div>
-
+            <div id="filters__wrapper">
+                <div id="filters_container">
+                    <div id="filters_title">
+                        <div id="title_text">Filters</div>
+                    </div>
+                    {
+                        filtersData && filtersData.map((filters,index) => {
+                            return <Accordion key={index} title={filters.label} content={filters.content} />
+                        })
+                    }
                 </div>
             </div>
             <div id="products">
                 {
-                    props.data && props.data.map((category, index) => {
+                    categoryData && categoryData.map((category) => {
                         return (
                             <div key={category.categoryId}>
                                 <h1>{category.categoryName}</h1>
@@ -50,8 +63,15 @@ const ContentWrapper = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        data: state.dataReducer
+        productData: state.dataReducer,
+        filtersData: state.filtersReducer
     }
 }
 
-export default connect(mapStateToProps, { fetchData })(ContentWrapper);
+function loadData(store) {
+    store.dispatch(fetchData());
+    store.dispatch(fetchFiltersData());
+}
+
+export { loadData };
+export default connect(mapStateToProps, { fetchData, fetchFiltersData })(ContentWrapper);
